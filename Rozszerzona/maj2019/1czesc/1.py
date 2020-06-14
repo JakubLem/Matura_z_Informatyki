@@ -12,7 +12,6 @@ def ex2(tab):
 def main():
     A = [99, 3, 7, 111, 13, 4, 24, 4, 8]
     print(ex1(A))
-    print("NIE KURWA")
 
 if __name__ == "__main__":
     main()

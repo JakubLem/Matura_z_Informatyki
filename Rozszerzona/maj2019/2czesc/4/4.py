@@ -63,9 +63,31 @@ def ex3():
 
 
 def main():
-    # print(len(ex1()))
-    # print(ex2())
-    print(len(ex3()))
+    first_ex = ex1()
+    second_ex = ex2()
+    third_ex = ex3()
+    print(first_ex)
+    print(second_ex)
+    print(third_ex)
+
+    file = open('Rozszerzona/maj2019/2czesc/4/odpowiedz4.txt','w',encoding="utf-8")
+
+    file.write("Zadanie 1")
+    file.write("\n")
+    file.write(f'{len(first_ex)}')
+    file.write("\n")
+
+    file.write("Zadanie 2")
+    file.write("\n")
+    for i in second_ex:
+        file.write(f'{i}')
+        file.write("\n")
+
+    file.write("Zadanie 3")
+    file.write("\n")
+    file.write(f'{len(third_ex)}')
+    file.write("\n")
+    file.close()
 
 if __name__ == "__main__":
     main()
