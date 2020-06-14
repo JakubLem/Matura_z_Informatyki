@@ -49,9 +49,10 @@ def ex3(days):
             self.avarage = float(0.0)
 
         def setAvarage(self):
-            self.avarage = float(float(self.sum)/float(self.counter))
+            if self.counter!=0:
+                self.avarage = round(float(float(self.sum)/float(self.counter)),2)
 
-        def addDay(day):
+        def addDay(self,day):
             self.sum += float(day.opad)
             self.counter += 1
 
@@ -66,8 +67,34 @@ def ex3(days):
     s4 = Type()
     s5 = Type()
 
+    array = (c1,c2,c3,c4,c5,s1,s2,s3,s4,s5)
+
     for i in range(0,300,1):
-        pass
+        if days[i].kat_chmur == "C" and days[i].wiel_chmur == 1:
+            c1.addDay(days[i])
+        elif days[i].kat_chmur == "C" and days[i].wiel_chmur == 2:
+            c2.addDay(days[i])
+        elif days[i].kat_chmur == "C" and days[i].wiel_chmur == 3:
+            c3.addDay(days[i])
+        elif days[i].kat_chmur == "C" and days[i].wiel_chmur == 4:
+            c4.addDay(days[i])
+        elif days[i].kat_chmur == "C" and days[i].wiel_chmur == 5:
+            c5.addDay(days[i])
+        elif days[i].kat_chmur == "S" and days[i].wiel_chmur == 1:
+            s1.addDay(days[i])
+        elif days[i].kat_chmur == "S" and days[i].wiel_chmur == 2:
+            s2.addDay(days[i])
+        elif days[i].kat_chmur == "S" and days[i].wiel_chmur == 3:
+            s3.addDay(days[i])
+        elif days[i].kat_chmur == "S" and days[i].wiel_chmur == 4:
+            s4.addDay(days[i])
+        elif days[i].kat_chmur == "S" and days[i].wiel_chmur == 5:
+            s5.addDay(days[i])
+    
+    for obj in array:
+        obj.setAvarage()
+
+    return array
 
 def main():
     data = open('Rozszerzona/maj2019/2czesc/Dane_PR2/pogoda.txt','r',encoding='utf-8').read().splitlines()
@@ -86,6 +113,11 @@ def main():
     startDay, stopDay = second_ex
     print(startDay)
     print(stopDay)
+
+    third_ex = ex3(days)
+    for i in range(10):
+        print(third_ex[i].avarage)
+    
 
 if __name__ == "__main__":
     main()
