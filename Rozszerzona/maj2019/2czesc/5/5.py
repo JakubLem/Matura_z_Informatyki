@@ -41,7 +41,33 @@ def ex2(days):
         print(i)
     return {result[0].dzien, result[len(result)-1].dzien}
 
+def ex3(days):
+    class Type:
+        def __init__(self):
+            self.sum = float(0.0)
+            self.counter = int(0)
+            self.avarage = float(0.0)
 
+        def setAvarage(self):
+            self.avarage = float(float(self.sum)/float(self.counter))
+
+        def addDay(day):
+            self.sum += float(day.opad)
+            self.counter += 1
+
+    c1 = Type()
+    c2 = Type()
+    c3 = Type()
+    c4 = Type()
+    c5 = Type()
+    s1 = Type()
+    s2 = Type()
+    s3 = Type()
+    s4 = Type()
+    s5 = Type()
+
+    for i in range(0,300,1):
+        pass
 
 def main():
     data = open('Rozszerzona/maj2019/2czesc/Dane_PR2/pogoda.txt','r',encoding='utf-8').read().splitlines()
