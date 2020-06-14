@@ -26,7 +26,6 @@ def ex2(days):
     while i < len(days)-1:
         counter = list()
         temp = days[i].temperatura
-        counter.append(days[i])
         i+=1
         while days[i].temperatura > temp:
             temp = days[i].temperatura
@@ -58,6 +57,9 @@ def main():
     print(first_ex)
     second_ex = ex2(days)
     print(second_ex)
+    startDay, stopDay = second_ex
+    print(startDay)
+    print(stopDay)
 
 if __name__ == "__main__":
     main()
