@@ -1,0 +1,2 @@
+class Marka:
+    pass
