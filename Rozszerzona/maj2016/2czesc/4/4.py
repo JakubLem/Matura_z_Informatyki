@@ -11,10 +11,16 @@ def toPointList(data):
 def ex1(points):
     class Answer:
         def __init__(self):
-            self.points = list()
-            self.onCircle = 0
+            self.onCirclePoinst = list()
+            self.inCircle = 0
+
     answer = Answer()
-    
+    for i in points:
+        if pow(int(i[0])-int(200),2) + pow(int(i[1])-int(200),2) == pow(200,2):
+            answer.onCirclePoinst.append(i)
+        elif pow(int(i[0])-int(200),2) + pow(int(i[1])-int(200),2) < pow(200,2):
+            answer.inCircle += 1
+    return answer
 
 
 def main():
@@ -22,6 +28,11 @@ def main():
     points = toPointList(data)
     
     ex_1 = ex1(points)
+
+    for i in ex_1.onCirclePoinst:
+        print(i)
+    print("--")
+    print(ex_1.inCircle)
 
 
 
