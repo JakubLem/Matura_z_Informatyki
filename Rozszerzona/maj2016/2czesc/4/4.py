@@ -16,7 +16,7 @@ def ex1(points):
 
     answer = Answer()
     for i in points:
-        if pow(int(i[0])-int(200),2) + pow(int(i[1])-int(200),2) == pow(200,2):
+        if (pow(int(i[0])-int(200),2) + pow(int(i[1])-int(200),2) == pow(200,2)):
             answer.onCirclePoinst.append(i)
         elif pow(int(i[0])-int(200),2) + pow(int(i[1])-int(200),2) < pow(200,2):
             answer.inCircle += 1
@@ -33,7 +33,6 @@ def main():
         print(i)
     print("--")
     print(ex_1.inCircle)
-
 
 
 
