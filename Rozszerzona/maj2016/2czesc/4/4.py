@@ -23,6 +23,13 @@ def ex1(points):
     return answer
 
 
+def ex_2(points):
+    pass
+
+def ex_3(points):
+    pass
+
+
 def main():
     data = open("Rozszerzona/maj2016/2czesc/Dane_PR2/punkty.txt", "r", encoding="utf-8").read().splitlines()
     points = toPointList(data)
