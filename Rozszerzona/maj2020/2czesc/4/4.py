@@ -38,19 +38,23 @@ def ex1(rows):
 def ex2(rows):
     for i in rows:
         array = list(i.word)
-        index = int(1)
+        index = int(0)
         result = int(0)
         char = str("")
         c = array[0]
         while index < len(array):
             counter = int(1)
-            while c == array[index] and index < len(array):
+            while c == array[index]:
                 index += 1
                 counter += 1
+                if index == len(array):
+                    break
             if counter > result:
                 result = counter
                 char = c
             index += 1
+            if index != len(array):
+                c = array[index]
         i.frag = char
         i.frag_counter = result
 
