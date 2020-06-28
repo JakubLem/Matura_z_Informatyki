@@ -3,13 +3,14 @@ class Row:
         self.number = number
         self.word = word
         self.goldbach = list()
+        self.frag = str("")
+        self.frag_counter = 0
 
     def __str__(self):
         goldbach = str("")
         if len(self.goldbach)!=0:
-            for i in self.goldbach:
-                goldbach += str("[" + str(i[0]) + "," + str(i[1]) + "]") 
-        return f'{self.number, self.word, goldbach}'
+            goldbach = str("[" + str(self.goldbach[0][0]) + str(self.goldbach[0][1]) + "]") 
+        return f'{self.number, self.word, goldbach, self.frag, self.frag_counter}'
 
 def pierwsza(n):
     if n == 0 or n == 1:
@@ -34,8 +35,29 @@ def ex1(rows):
                                 continue
     return rows
 
-def ex2():
-    pass
+def ex2(rows):
+    for i in rows:
+        array = list(i.word)
+        index = int(1)
+        result = int(0)
+        char = str("")
+        c = array[0]
+        while index < len(array):
+            counter = int(1)
+            while c == array[index] and index < len(array):
+                index += 1
+                counter += 1
+            if counter > result:
+                result = counter
+                char = c
+            index += 1
+        i.frag = char
+        i.frag_counter = result
+
+    return rows
+
+
+
 
 def ex3():
     pass
@@ -54,10 +76,12 @@ def main():
     
     rows = ex1(rows)
 
+    rows = ex2(rows)
+
     for i in rows:
         print(i)
 
-    print(pierwsza(5))
+    
 
 if __name__ == "__main__":
     main()
