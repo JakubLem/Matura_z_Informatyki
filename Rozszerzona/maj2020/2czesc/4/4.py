@@ -9,7 +9,7 @@ class Row:
     def __str__(self):
         goldbach = str("")
         if len(self.goldbach)!=0:
-            goldbach = str("[" + str(self.goldbach[0][0]) + str(self.goldbach[0][1]) + "]") 
+            goldbach = str("[" + str(self.goldbach[0][0]) + str(" , ") + str(self.goldbach[0][1]) + "]") 
         return f'{self.number, self.word, goldbach, self.frag, self.frag_counter}'
 
 def pierwsza(n):
@@ -42,7 +42,8 @@ def ex2(rows):
         result = int(0)
         char = str("")
         c = array[0]
-        while index < len(array):
+        while index < len(array)-1:
+            index += 1
             counter = int(1)
             while c == array[index]:
                 index += 1
@@ -52,7 +53,6 @@ def ex2(rows):
             if counter > result:
                 result = counter
                 char = c
-            index += 1
             if index != len(array):
                 c = array[index]
         i.frag = char
