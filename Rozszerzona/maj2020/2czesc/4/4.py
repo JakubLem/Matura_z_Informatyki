@@ -103,6 +103,25 @@ def main():
     """for i in rows:
         print(i)"""
 
+    # odb
+    odp = open("odpowiedz4.txt", "w", encoding="utf-8")
+    odp.write("zad1")
+    odp.write("\n")
+    for i in rows:
+        odp.write(i.number)
+
+        if len(i.goldbach)!=0:
+            odp.write("[")
+            odp.write(i.goldbach[0][0])
+            odp.write(" ")
+            odp.write(i.goldbach[0][1])
+        odp.write("\n")
+    odp.write("zad2")
+    odp.write("\n")
+    odp.write("zad3")
+    odp.write("\n")
+    odb.close()
+
     
 
 if __name__ == "__main__":
