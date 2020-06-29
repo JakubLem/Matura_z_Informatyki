@@ -61,10 +61,25 @@ def ex2(rows):
     return rows
 
 
+def isLower(row1,row2):
+    if row1.number > row2.number:
+        return False
+    if row1.number == row2.number:
+        for i in range(row1.number):
+            if ord(row1.word[i])>ord(row2.word[i]):
+                return False
+    return True
 
-
-def ex3():
-    pass
+def ex3(rows):
+    array = list()
+    for i in rows:
+        if i.number == len(i.word):
+            array.append(i)
+    minim = array[0]
+    for i in range(1,len(array),1):
+        if isLower(array[i],minim):
+            minim = array[i]
+    return minim
 
 
 def getRows(path):
@@ -82,8 +97,11 @@ def main():
 
     rows = ex2(rows)
 
-    for i in rows:
-        print(i)
+    ex_3 = ex3(rows)
+    print(ex_3)
+
+    """for i in rows:
+        print(i)"""
 
     
 
