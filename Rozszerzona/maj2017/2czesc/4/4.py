@@ -31,8 +31,8 @@ class Client:
 
 def getCost(pricelist, year):
     for i in pricelist:
-        if str(pricelist.year == year):
-            return pricelist.price
+        if str(i.year) == str(year):
+            return float(round(float(str(i.price).replace(",",".")),2))
     return None
 
 def isClient(nip,clients):
@@ -62,8 +62,11 @@ def ex1(transactions):
     clients.sort(key=getSugarWeight, reverse=True)
     return [clients[0], clients[1], clients[2]]
 
-def ex2():
-    pass
+def ex2(transactions,pricelist):
+    cost = float(0)
+    for i in transactions:
+        cost += getCost(pricelist, i.date[0:4])
+    return round(cost,2)
 
 def main():
     transactions = list()
@@ -82,8 +85,8 @@ def main():
         pricelist.append(PriceList(row[0], row[1]))
 
     ex_1 = ex1(transactions)
-    for i in ex_1:
-        print(i)
+    ex_2 = ex2(transactions,pricelist)
+    print(ex_2)
 
 
 if __name__ == "__main__":
