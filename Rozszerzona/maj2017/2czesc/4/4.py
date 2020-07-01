@@ -62,6 +62,8 @@ def ex1(transactions):
     clients.sort(key=getSugarWeight, reverse=True)
     return [clients[0], clients[1], clients[2]]
 
+def ex2():
+    pass
 
 def main():
     transactions = list()
