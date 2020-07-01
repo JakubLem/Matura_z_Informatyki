@@ -29,6 +29,12 @@ class Client:
         self.sugarWeight += weight
 
 
+def getCost(pricelist, year):
+    for i in pricelist:
+        if str(pricelist.year == year):
+            return pricelist.price
+    return None
+
 def isClient(nip,clients):
     if len(clients) == 0:
         return False
@@ -52,17 +58,9 @@ def ex1(transactions):
             clients[getID(i.nip, clients)].addSugar(int(i.weight))
         else:
             clients.append(Client(i.nip))
-
-
-
+            clients[getID(i.nip, clients)].addSugar(int(i.weight))
     clients.sort(key=getSugarWeight, reverse=True)
-
-
-    bestClients = [clients[0], clients[1], clients[2]]
-
-
-
-    return bestClients
+    return [clients[0], clients[1], clients[2]]
 
 
 def main():
