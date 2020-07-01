@@ -1,4 +1,3 @@
-
 class Transaction:
     def __init__(self, date, nip, weight):
         self.date = date
@@ -8,6 +7,7 @@ class Transaction:
     def __str__(self):
         return f'{self.date, self.nip, self.weight}'
 
+
 class PriceList:
     def __init__(self,year,price):
         self.year = year
@@ -16,8 +16,53 @@ class PriceList:
     def __str__(self):
         return f'{self.year, self.price}'
 
-def ex1():
-    pass
+
+class Client:
+    def __init__(self,nip):
+        self.nip = nip
+        self.sugarWeight = int(0)
+
+    def __str__(self):
+        return f'{self.nip, self.sugarWeight}'
+
+    def addSugar(self,weight):
+        self.sugarWeight += weight
+
+
+def isClient(nip,clients):
+    if len(clients) == 0:
+        return False
+    for i in clients:
+        if i.nip == nip:
+            return True
+    return False
+
+def getID(nip, clients):
+    for i in range(len(clients)):
+        if clients[i].nip == nip:
+            return i
+
+def getSugarWeight(obj):
+    return obj.sugarWeight
+
+def ex1(transactions):
+    clients = list()
+    for i in transactions:
+        if isClient(i.nip, clients) == True:
+            clients[getID(i.nip, clients)].addSugar(int(i.weight))
+        else:
+            clients.append(Client(i.nip))
+
+
+
+    clients.sort(key=getSugarWeight, reverse=True)
+
+
+    bestClients = [clients[0], clients[1], clients[2]]
+
+
+
+    return bestClients
 
 
 def main():
@@ -35,9 +80,11 @@ def main():
     for i in data:
         row = i.split()
         pricelist.append(PriceList(row[0], row[1]))
-    
-    for i in pricelist:
+
+    ex_1 = ex1(transactions)
+    for i in ex_1:
         print(i)
+
 
 if __name__ == "__main__":
     main()
