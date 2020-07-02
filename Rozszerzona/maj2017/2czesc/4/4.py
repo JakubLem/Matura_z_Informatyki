@@ -12,9 +12,10 @@ class PriceList:
     def __init__(self,year,price):
         self.year = year
         self.price = price
+        self.summaryWeight = int(0)
 
     def __str__(self):
-        return f'{self.year, self.price}'
+        return f'{self.year, self.price, self.summaryWeight}'
 
 
 class Client:
@@ -71,7 +72,13 @@ def ex2(transactions,pricelist):
 
 
 def ex3(transactions, pricelist):
-    pass
+    for i in transactions:
+        year = i.date[0:4]
+        for x in pricelist:
+            if x.year == year:
+                x.summaryWeight += int(i.weight)
+                continue
+    return pricelist
 
 
 
@@ -93,7 +100,10 @@ def main():
 
     ex_1 = ex1(transactions)
     ex_2 = ex2(transactions,pricelist)
-    print(ex_2)
+
+    ex_3 = ex3(transactions,pricelist)
+    for i in ex_3:
+        print(i)
 
 
 if __name__ == "__main__":
