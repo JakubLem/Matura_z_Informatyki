@@ -80,6 +80,12 @@ def ex3(transactions, pricelist):
                 continue
     return pricelist
 
+def ex4(transactions,pricelist):
+    pass
+
+def ex5(transactions,pricelist):
+    pass
+
 
 
 def main():
