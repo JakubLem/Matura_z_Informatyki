@@ -80,8 +80,26 @@ def ex3(transactions, pricelist):
                 continue
     return pricelist
 
-def ex4(transactions,pricelist):
-    pass
+# incorrect
+def ex4(transactions):
+    discount = float(0.0)
+    clients = list()
+    for i in transactions:
+        if isClient(i.nip, clients) == True:
+            clients[getID(i.nip, clients)].addSugar(int(i.weight))
+        else:
+            clients.append(Client(i.nip))
+            clients[getID(i.nip, clients)].addSugar(int(i.weight))
+        iden = getID(i.nip, clients)
+        w = clients[iden].sugarWeight
+        if w >= 100 and w < 1000:
+            discount += 5
+        elif w >= 1000 and w < 10000:
+            discount += 10
+        elif w >= 10000:
+            discount += 20
+    return discount
+    
 
 def ex5(transactions,pricelist):
     pass
@@ -108,8 +126,8 @@ def main():
     ex_2 = ex2(transactions,pricelist)
 
     ex_3 = ex3(transactions,pricelist)
-    for i in ex_3:
-        print(i)
+    ex_4 = ex4(transactions)
+    print(ex_4)
 
 
 if __name__ == "__main__":
