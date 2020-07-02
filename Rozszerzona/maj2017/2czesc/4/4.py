@@ -62,11 +62,18 @@ def ex1(transactions):
     clients.sort(key=getSugarWeight, reverse=True)
     return [clients[0], clients[1], clients[2]]
 
+# incorrect
 def ex2(transactions,pricelist):
     cost = float(0)
     for i in transactions:
         cost += getCost(pricelist, i.date[0:4])
     return round(cost,2)
+
+
+def ex3(transactions, pricelist):
+    pass
+
+
 
 def main():
     transactions = list()
