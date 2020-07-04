@@ -21,6 +21,9 @@ def ex2(rows):
             word = i
     return {'word' : word, 'counter' : maincounter}
 
+def ex3(rows):
+    pass
+
 
 
 def main():
