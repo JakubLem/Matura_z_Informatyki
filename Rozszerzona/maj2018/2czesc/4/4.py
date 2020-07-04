@@ -1,4 +1,4 @@
-
+import math
 
 def ex1(rows):
     result = str("")
@@ -21,8 +21,19 @@ def ex2(rows):
             word = i
     return {'word' : word, 'counter' : maincounter}
 
+def wordCheck(word):
+    char = word[0]
+    for i in range(1,len(word),1):
+        if abs(ord(word[i-1])-ord(word[i])) > 10:
+            return False
+    return True
+
 def ex3(rows):
-    pass
+    result = list()
+    for word in rows:
+        if wordCheck(word):
+            result.append(word)
+    return result
 
 
 
@@ -32,6 +43,8 @@ def main():
     print(ex_1)
     ex_2 = ex2(rows)
     print(ex_2)
+    ex_3 = ex3(rows)
+    print(ex_3)
 
 
 if __name__ == "__main__":
