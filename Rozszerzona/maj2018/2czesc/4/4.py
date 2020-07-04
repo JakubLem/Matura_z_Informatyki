@@ -13,7 +13,7 @@ def ex2(rows):
         counter = int(0)
         charlist = list()
         for char in i:
-            if char is not in charlist:
+            if char not in charlist:
                 counter += 1
                 charlist.append(char)
         if counter > maincounter:
@@ -30,6 +30,8 @@ def main():
     rows = open("Rozszerzona/maj2018/2czesc/Dane_PR2/sygnaly.txt", "r", encoding="utf-8").read().splitlines()
     ex_1 = ex1(rows)
     print(ex_1)
+    ex_2 = ex2(rows)
+    print(ex_2)
 
 
 if __name__ == "__main__":
