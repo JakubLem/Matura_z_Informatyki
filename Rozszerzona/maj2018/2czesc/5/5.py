@@ -44,6 +44,8 @@ def ex2(days):
         i += 1
     return date
         
+def ex3(days):
+    pass
          
 
 
