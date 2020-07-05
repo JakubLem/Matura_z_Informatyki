@@ -9,6 +9,9 @@ class Day:
     def toYear(self):
         return int(self.date[0:4])
 
+    def getMonth(self):
+        return int(self.date[5:7])
+
 
 def ex1(days):
     year = 2008
@@ -45,7 +48,19 @@ def ex2(days):
     return date
         
 def ex3(days):
-    pass
+    months = list()
+    i = 0
+    month = 1
+    while days[i].toYear() == 2008:
+        water = int(0)
+        while days[i].getMonth() == month:
+            water += int(days[i].water)
+            i += 1
+        months.append({'month': month , 'water': water})
+        month += 1
+        if month == 13:
+            return months
+
          
 
 
@@ -68,6 +83,9 @@ def main():
 
     ex_2 = ex2(days)
     print(ex_2)
+
+    ex_3 = ex3(days)
+    print(ex_3)
 
 if __name__ == "__main__":
     main()
