@@ -17,11 +17,34 @@ def ex1(days):
     i = 0
     while i < len(days):
         counter = int(0)
-        while days[i].toYear() == year and i < len(days):
-            i += 1
+        while days[i].toYear() == year:
             counter += int(days[i].water)
-            pass
+            i += 1
+            if i == len(days):
+                break
         if counter > result:
+            resultyear = year
+            result = counter
+        i += 1
+        year += 1
+    return resultyear
+
+def ex2(days):
+    i = 0
+    reslen = 0
+    while i < len(days):
+        singlelen = 0
+        startDate = days[i].date
+        while int(days[i].water) > 10000:
+            i += 1
+            singlelen += 1
+        if singlelen > reslen:
+            date = {'startDate': startDate, 'stopDate': days[i-1].date}
+            reslen = singlelen
+        i += 1
+    return date
+        
+         
 
 
 
@@ -37,11 +60,12 @@ def main():
         water = day[1]
         days.append(Day(date,water))
     
-    for i in days:
-        print(i.toYear())
 
     ex_1 = ex1(days)
     print(ex_1)
+
+    ex_2 = ex2(days)
+    print(ex_2)
 
 if __name__ == "__main__":
     main()
