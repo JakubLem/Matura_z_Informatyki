@@ -79,12 +79,15 @@ def main():
     
 
     ex_1 = ex1(days)
+    print("zad1")
     print(ex_1)
 
     ex_2 = ex2(days)
+    print("zad2")
     print(ex_2)
 
     ex_3 = ex3(days)
+    print("zad3")
     print(ex_3)
 
 if __name__ == "__main__":
